@@ -16,7 +16,7 @@ public class StoreActor extends UntypedActor {
         if(StoreMessage.match(message)) {
             ProcessedResource resource = ((StoreMessage) message).processedResource;
             resourceStore.storeAndMerge(resource);
-            System.out.println("Storing resource: " + resource);
+            System.out.println("Storing resource: " + resourceStore.get(resource.getName()).get());
         } else {
             unhandled(message);
         }

@@ -5,6 +5,8 @@ import akka.actor.Props;
 import akka.actor.UntypedActor;
 import de.tarent.akka.java.checksum.ChecksumActor;
 import de.tarent.akka.java.Resource;
+import de.tarent.akka.java.store.ProcessedResource;
+import de.tarent.akka.java.store.StoreMessage;
 
 import java.util.Random;
 
@@ -24,13 +26,18 @@ public class VirusScanActor extends UntypedActor {
         if(CheckVirusMessage.match(message)) {
             final Resource resource = ((CheckVirusMessage) message).resource;
             VirusScan scan = scanner.scanForVirus(resource);
-
             System.out.println("Scan was successful: " + scan.found);
+
+            sendToStore(scan);
         } else {
             unhandled(message);
         }
     }
 
+    private void sendToStore(VirusScan scan) {
+        StoreMessage message = new StoreMessage(ProcessedResource.fromVirusScan(scan));
+        storeActor.tell(message, self());
+    }
 
     public static Props configure(ActorRef storeActor) {
         return Props.create(VirusScanActor.class, new Scanner(), storeActor);

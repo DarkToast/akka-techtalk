@@ -1,5 +1,7 @@
 package de.tarent.akka.java.store;
 
+import de.tarent.akka.java.viruscheck.VirusScan;
+
 public class ProcessedResource {
     private String name;
     private String content;
@@ -46,5 +48,12 @@ public class ProcessedResource {
                 ", checksum='" + checksum + '\'' +
                 ", containsVirus=" + containsVirus +
                 '}';
+    }
+
+    public static ProcessedResource fromVirusScan(VirusScan virusScan) {
+        ProcessedResource resource = new ProcessedResource(virusScan.resouceName);
+        resource.setContainsVirus(virusScan.found);
+
+        return resource;
     }
 }
