@@ -1,4 +1,4 @@
-package de.tarent.akka.java.store
+package de.tarent.akka.java.fullExample.store
 
 import spock.lang.Specification
 import spock.lang.Subject

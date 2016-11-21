@@ -1,4 +1,4 @@
-package de.tarent.akka.java.checksum;
+package de.tarent.akka.java.fullExample.checksum;
 
 public class Checksum {
     public final String resourceName;

@@ -1,6 +1,4 @@
-package de.tarent.akka.java.store;
-
-import de.tarent.akka.java.viruscheck.CheckVirusMessage;
+package de.tarent.akka.java.fullExample.store;
 
 public class StoreMessage {
     public final ProcessedResource processedResource;

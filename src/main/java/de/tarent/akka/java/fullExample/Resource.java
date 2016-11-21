@@ -1,4 +1,4 @@
-package de.tarent.akka.java;
+package de.tarent.akka.java.fullExample;
 
 public class Resource {
     public final String name;

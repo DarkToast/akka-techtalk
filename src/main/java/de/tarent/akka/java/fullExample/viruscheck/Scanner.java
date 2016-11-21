@@ -1,6 +1,6 @@
-package de.tarent.akka.java.viruscheck;
+package de.tarent.akka.java.fullExample.viruscheck;
 
-import de.tarent.akka.java.Resource;
+import de.tarent.akka.java.fullExample.Resource;
 
 class Scanner {
     public VirusScan scanForVirus(Resource resource) {

@@ -1,11 +1,11 @@
-package de.tarent.akka.java.checksum;
+package de.tarent.akka.java.fullExample.checksum;
 
 import akka.actor.ActorRef;
 import akka.actor.Props;
 import akka.actor.UntypedActor;
-import de.tarent.akka.java.Resource;
-import de.tarent.akka.java.store.ProcessedResource;
-import de.tarent.akka.java.store.StoreMessage;
+import de.tarent.akka.java.fullExample.Resource;
+import de.tarent.akka.java.fullExample.store.ProcessedResource;
+import de.tarent.akka.java.fullExample.store.StoreMessage;
 
 import java.util.Random;
 

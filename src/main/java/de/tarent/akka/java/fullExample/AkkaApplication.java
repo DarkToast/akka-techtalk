@@ -1,14 +1,14 @@
-package de.tarent.akka.java;
+package de.tarent.akka.java.fullExample;
 
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
-import de.tarent.akka.java.checksum.CalculateChecksumMessage;
-import de.tarent.akka.java.checksum.ChecksumActor;
-import de.tarent.akka.java.store.ProcessedResource;
-import de.tarent.akka.java.store.StoreActor;
-import de.tarent.akka.java.store.StoreMessage;
-import de.tarent.akka.java.viruscheck.CheckVirusMessage;
-import de.tarent.akka.java.viruscheck.VirusScanActor;
+import de.tarent.akka.java.fullExample.checksum.CalculateChecksumMessage;
+import de.tarent.akka.java.fullExample.checksum.ChecksumActor;
+import de.tarent.akka.java.fullExample.store.ProcessedResource;
+import de.tarent.akka.java.fullExample.store.StoreActor;
+import de.tarent.akka.java.fullExample.store.StoreMessage;
+import de.tarent.akka.java.fullExample.viruscheck.CheckVirusMessage;
+import de.tarent.akka.java.fullExample.viruscheck.VirusScanActor;
 
 public class AkkaApplication {
 
@@ -42,6 +42,4 @@ public class AkkaApplication {
         Thread.sleep(10000);
         actorSystem.shutdown();
     }
-
-
 }

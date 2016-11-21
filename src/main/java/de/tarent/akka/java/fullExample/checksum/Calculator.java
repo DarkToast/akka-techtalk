@@ -1,6 +1,6 @@
-package de.tarent.akka.java.checksum;
+package de.tarent.akka.java.fullExample.checksum;
 
-import de.tarent.akka.java.Resource;
+import de.tarent.akka.java.fullExample.Resource;
 
 import java.util.Base64;
 

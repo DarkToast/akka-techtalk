@@ -1,4 +1,4 @@
-package de.tarent.akka.java.store;
+package de.tarent.akka.java.fullExample.store;
 
 import java.util.HashMap;
 import java.util.Map;

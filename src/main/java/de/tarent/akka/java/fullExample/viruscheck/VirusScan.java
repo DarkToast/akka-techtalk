@@ -1,4 +1,4 @@
-package de.tarent.akka.java.viruscheck;
+package de.tarent.akka.java.fullExample.viruscheck;
 
 import java.util.Optional;
 

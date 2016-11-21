@@ -1,8 +1,8 @@
-package de.tarent.akka.java.store;
+package de.tarent.akka.java.fullExample.store;
 
-import de.tarent.akka.java.Resource;
-import de.tarent.akka.java.checksum.Checksum;
-import de.tarent.akka.java.viruscheck.VirusScan;
+import de.tarent.akka.java.fullExample.Resource;
+import de.tarent.akka.java.fullExample.checksum.Checksum;
+import de.tarent.akka.java.fullExample.viruscheck.VirusScan;
 
 public class ProcessedResource {
     private String name;
