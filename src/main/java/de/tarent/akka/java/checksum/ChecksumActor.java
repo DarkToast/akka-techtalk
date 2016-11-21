@@ -4,6 +4,8 @@ import akka.actor.ActorRef;
 import akka.actor.Props;
 import akka.actor.UntypedActor;
 import de.tarent.akka.java.Resource;
+import de.tarent.akka.java.store.ProcessedResource;
+import de.tarent.akka.java.store.StoreMessage;
 
 import java.util.Random;
 
@@ -24,11 +26,16 @@ public class ChecksumActor extends UntypedActor {
         if (CalculateChecksumMessage.match(message)) {
             Resource resource = ((CalculateChecksumMessage) message).resource;
             Checksum checksum = calculator.calculate(resource);
-
             System.out.println("Checksum is: " + checksum.base64Checksum);
+
+            sendToStore(checksum);
         } else {
             unhandled(message);
         }
+    }
+
+    private void sendToStore(Checksum checksum) {
+        storeActor.tell(new StoreMessage(ProcessedResource.fromChecksum(checksum)), self());
     }
 
     public static Props configure(ActorRef storeActor) {

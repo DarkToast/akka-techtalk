@@ -4,7 +4,9 @@ import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import de.tarent.akka.java.checksum.CalculateChecksumMessage;
 import de.tarent.akka.java.checksum.ChecksumActor;
+import de.tarent.akka.java.store.ProcessedResource;
 import de.tarent.akka.java.store.StoreActor;
+import de.tarent.akka.java.store.StoreMessage;
 import de.tarent.akka.java.viruscheck.CheckVirusMessage;
 import de.tarent.akka.java.viruscheck.VirusScanActor;
 
@@ -26,6 +28,7 @@ public class AkkaApplication {
         Resource resource = new Resource("./foobar.txt", "MY Virus CONTENT");
         checksumActor.tell(new CalculateChecksumMessage(resource), null);
         virusCheckActor.tell(new CheckVirusMessage(resource), null);
+        storeActor.tell(new StoreMessage(ProcessedResource.fromResource(resource)), null);
 
         System.out.println("I am still able to perform stuff.");
 

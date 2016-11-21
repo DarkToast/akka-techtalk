@@ -1,5 +1,7 @@
 package de.tarent.akka.java.store;
 
+import de.tarent.akka.java.Resource;
+import de.tarent.akka.java.checksum.Checksum;
 import de.tarent.akka.java.viruscheck.VirusScan;
 
 public class ProcessedResource {
@@ -55,5 +57,19 @@ public class ProcessedResource {
         resource.setContainsVirus(virusScan.found);
 
         return resource;
+    }
+
+    public static ProcessedResource fromResource(Resource resource) {
+        ProcessedResource processedResource = new ProcessedResource(resource.name);
+        processedResource.setContent(resource.content);
+
+        return processedResource;
+    }
+
+    public static ProcessedResource fromChecksum(Checksum checksum) {
+        ProcessedResource processedResource = new ProcessedResource(checksum.resourceName);
+        processedResource.setChecksum(checksum.base64Checksum);
+
+        return processedResource;
     }
 }
