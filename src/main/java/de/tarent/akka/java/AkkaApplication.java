@@ -25,9 +25,16 @@ public class AkkaApplication {
 
         // -- Sending
 
+        // First a resource
         Resource resource = new Resource("./foobar.txt", "MY Virus CONTENT");
+
+        // Sending to the checksum actor
         checksumActor.tell(new CalculateChecksumMessage(resource), null);
+
+        // Sending to the virus scan actor
         virusCheckActor.tell(new CheckVirusMessage(resource), null);
+
+        // Sendting to the store Actor
         storeActor.tell(new StoreMessage(ProcessedResource.fromResource(resource)), null);
 
         System.out.println("I am still able to perform stuff.");
