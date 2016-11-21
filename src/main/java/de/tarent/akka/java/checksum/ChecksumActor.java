@@ -1,5 +1,6 @@
 package de.tarent.akka.java.checksum;
 
+import akka.actor.ActorRef;
 import akka.actor.Props;
 import akka.actor.UntypedActor;
 import de.tarent.akka.java.Resource;
@@ -9,9 +10,11 @@ import java.util.Random;
 public class ChecksumActor extends UntypedActor {
 
     private final Calculator calculator;
+    private final ActorRef storeActor;
 
-    public ChecksumActor(Calculator calculator) {
+    public ChecksumActor(Calculator calculator, ActorRef storeActor) {
         this.calculator = calculator;
+        this.storeActor = storeActor;
     }
 
     @Override
@@ -28,7 +31,7 @@ public class ChecksumActor extends UntypedActor {
         }
     }
 
-    public static Props configure() {
-        return Props.create(ChecksumActor.class, new Calculator());
+    public static Props configure(ActorRef storeActor) {
+        return Props.create(ChecksumActor.class, new Calculator(), storeActor);
     }
 }

@@ -37,4 +37,14 @@ public class ProcessedResource {
     public void setContainsVirus(boolean containsVirus) {
         this.containsVirus = containsVirus;
     }
+
+    @Override
+    public String toString() {
+        return "ProcessedResource{" +
+                "name='" + name + '\'' +
+                ", content='" + content + '\'' +
+                ", checksum='" + checksum + '\'' +
+                ", containsVirus=" + containsVirus +
+                '}';
+    }
 }
