@@ -1,4 +1,4 @@
-package de.tarent.akka.java.basic;
+package de.tarent.akka.java.basic.actors;
 
 import akka.actor.UntypedActor;
 import de.tarent.akka.java.basic.messages.ReceiveMessage;

@@ -3,6 +3,8 @@ package de.tarent.akka.java.basic;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
+import de.tarent.akka.java.basic.actors.FirstActor;
+import de.tarent.akka.java.basic.actors.SecondActor;
 import de.tarent.akka.java.basic.messages.SendMessage;
 
 public class AkkaApplication {
