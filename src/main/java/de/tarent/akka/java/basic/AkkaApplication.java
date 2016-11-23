@@ -12,13 +12,11 @@ public class AkkaApplication {
         ActorSystem basic = ActorSystem.create("Basic");
 
         ActorRef secondActorRef = basic.actorOf(
-            Props.create(SecondActor.class),
-            "secondActor"
+            Props.create(SecondActor.class), "secondActor"
         );
 
         ActorRef firstActorRef = basic.actorOf(
-            Props.create(FirstActor.class, secondActorRef),
-            "firstActor"
+            Props.create(FirstActor.class, secondActorRef), "firstActor"
         );
 
         SendMessage message = new SendMessage("Hallo Welt!");
