@@ -1,4 +1,4 @@
-package de.tarent.akka.java.scheduledBalancer.actors;
+package de.tarent.akka.java.balanced.actors;
 
 import akka.actor.ActorRef;
 import akka.actor.Terminated;

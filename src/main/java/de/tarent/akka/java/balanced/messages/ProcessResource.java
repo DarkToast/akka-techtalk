@@ -1,4 +1,4 @@
-package de.tarent.akka.java.scheduledBalancer.messages;
+package de.tarent.akka.java.balanced.messages;
 
 public class ProcessResource {
     public final String resource;

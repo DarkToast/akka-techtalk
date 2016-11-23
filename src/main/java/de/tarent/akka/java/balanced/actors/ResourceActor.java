@@ -1,4 +1,4 @@
-package de.tarent.akka.java.scheduledBalancer.actors;
+package de.tarent.akka.java.balanced.actors;
 
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
@@ -8,8 +8,8 @@ import akka.event.LoggingAdapter;
 import akka.japi.pf.FI;
 import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
-import de.tarent.akka.java.scheduledBalancer.messages.ProcessResource;
-import de.tarent.akka.java.scheduledBalancer.messages.ResourceProcessed;
+import de.tarent.akka.java.balanced.messages.ProcessResource;
+import de.tarent.akka.java.balanced.messages.ResourceProcessed;
 import scala.PartialFunction;
 import scala.runtime.BoxedUnit;
 

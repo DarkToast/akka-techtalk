@@ -1,10 +1,10 @@
-package de.tarent.akka.java.scheduledBalancer.actors;
+package de.tarent.akka.java.balanced.actors;
 
 import akka.actor.UntypedActor;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
-import de.tarent.akka.java.scheduledBalancer.messages.ProcessResource;
-import de.tarent.akka.java.scheduledBalancer.messages.ResourceProcessed;
+import de.tarent.akka.java.balanced.messages.ProcessResource;
+import de.tarent.akka.java.balanced.messages.ResourceProcessed;
 
 class ProcessorActor extends UntypedActor {
     private final LoggingAdapter log = Logging.getLogger(getContext().system(), this);
