@@ -8,7 +8,6 @@ import akka.event.LoggingAdapter;
 import akka.japi.pf.FI;
 import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
-import de.tarent.akka.java.scheduledBalancer.messages.NextTick;
 import de.tarent.akka.java.scheduledBalancer.messages.ProcessResource;
 import de.tarent.akka.java.scheduledBalancer.messages.ResourceProcessed;
 import scala.PartialFunction;
