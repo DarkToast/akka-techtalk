@@ -1,9 +1,9 @@
 package de.tarent.akka.java.basic.messages;
 
-public class SendMessage {
+public class HelloMessage {
     public final String content;
 
-    public SendMessage(String content) {
+    public HelloMessage(String content) {
         this.content = content;
     }
 }
