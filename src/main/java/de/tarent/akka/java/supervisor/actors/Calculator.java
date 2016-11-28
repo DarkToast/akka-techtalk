@@ -40,7 +40,7 @@ public class Calculator extends AbstractLoggingActor {
             DeciderBuilder
                 .match(ArithmeticException.class, e -> {
                     log().error(e, "Ou oh! Some arithmetic exception occurred: {}", e.getMessage());
-                    return SupervisorStrategy.resume();
+                    return SupervisorStrategy.restart();
                 })
                 .build();
 

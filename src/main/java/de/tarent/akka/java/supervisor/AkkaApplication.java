@@ -18,8 +18,8 @@ public class AkkaApplication {
         basic.actorOf(Props.create(Terminator.class, calculator), "terminator");
 
         calculator.tell(new Plus(1, 4), ActorRef.noSender());
-        calculator.tell(new Divide(4, 2), ActorRef.noSender());
         calculator.tell(new Divide(4, 0), ActorRef.noSender());
+        calculator.tell(new Divide(4, 2), ActorRef.noSender());
         calculator.tell(new Plus(4, 0), ActorRef.noSender());
 
         Thread.sleep(500);
