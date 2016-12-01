@@ -14,7 +14,8 @@ class Greeter extends UntypedActor {
         if(message instanceof HelloMessage) {
             log.info("Receiving a hello: " + ((HelloMessage) message).content);
 
-            // sender() points to our calling actor.
+            // sender() points to our calling actor. In this case it is the `ActorRef`
+            // of the `HelloWorld` actor.
             sender().tell(new GreetMessage("Hello Universe!"), self());
         } else {
             unhandled(message);
