@@ -34,7 +34,7 @@ public class ResourceActor extends UntypedActor {
             log.info("Resource was processed with content {}", processed.resource);
             int count = msgCount.incrementAndGet();
 
-            if (count == 50) {
+            if (count == 20) {
                 getContext().stop(self());
             }
         } else {
@@ -44,7 +44,7 @@ public class ResourceActor extends UntypedActor {
 
     @Override
     public void preStart() throws Exception {
-        for(int i = 0; i < 50; i++) {
+        for(int i = 0; i < 20; i++) {
             ProcessResource processResource = new ProcessResource("Hallo Welt " + i);
             // Every message will balanced between the 5 `ProcessorActor` actors.
             processor.tell(processResource, self());
