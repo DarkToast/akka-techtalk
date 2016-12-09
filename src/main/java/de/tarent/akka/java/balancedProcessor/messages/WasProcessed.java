@@ -1,9 +1,9 @@
 package de.tarent.akka.java.balancedProcessor.messages;
 
-public class ResourceProcessed {
+public class WasProcessed {
     public final String resource;
 
-    public ResourceProcessed(String resource) {
+    public WasProcessed(String resource) {
         this.resource = resource;
     }
 }

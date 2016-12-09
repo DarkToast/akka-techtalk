@@ -4,9 +4,9 @@ import akka.actor.UntypedActor;
 import akka.event.Logging;
 import akka.event.LoggingAdapter;
 import de.tarent.akka.java.balancedProcessor.messages.ProcessResource;
-import de.tarent.akka.java.balancedProcessor.messages.ResourceProcessed;
+import de.tarent.akka.java.balancedProcessor.messages.WasProcessed;
 
-class ProcessorActor extends UntypedActor {
+class ConsumerActor extends UntypedActor {
     private final LoggingAdapter log = Logging.getLogger(getContext().system(), this);
 
     @Override
@@ -16,7 +16,7 @@ class ProcessorActor extends UntypedActor {
             log.info("Receiving a process resource message with content {}", resource);
             Thread.sleep(2000);
 
-            sender().tell(new ResourceProcessed(resource), self());
+            sender().tell(new WasProcessed(resource), self());
         }
     }
 }

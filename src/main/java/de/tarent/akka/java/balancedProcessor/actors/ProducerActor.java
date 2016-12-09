@@ -7,20 +7,20 @@ import akka.event.Logging;
 import akka.event.LoggingAdapter;
 import akka.routing.RoundRobinPool;
 import de.tarent.akka.java.balancedProcessor.messages.ProcessResource;
-import de.tarent.akka.java.balancedProcessor.messages.ResourceProcessed;
+import de.tarent.akka.java.balancedProcessor.messages.WasProcessed;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
-public class ResourceActor extends UntypedActor {
+public class ProducerActor extends UntypedActor {
     private final LoggingAdapter log = Logging.getLogger(getContext().system(), this);
 
     private final ActorRef processor;
     private final AtomicInteger msgCount = new AtomicInteger(0);
 
-    public ResourceActor() {
+    public ProducerActor() {
         // Create a `Props` object, that will build us a `RoundRobinPool`
         // with 5 `ProcessorActor` actors.
-        Props props = new RoundRobinPool(5).props(Props.create(ProcessorActor.class));
+        Props props = new RoundRobinPool(5).props(Props.create(ConsumerActor.class));
 
         // This `ActorRef` now points to the `RoundRobinPool`.
         this.processor = getContext().actorOf(props);
@@ -28,8 +28,8 @@ public class ResourceActor extends UntypedActor {
 
     @Override
     public void onReceive(Object message) throws Throwable {
-        if (message instanceof ResourceProcessed) {
-            ResourceProcessed processed = (ResourceProcessed) message;
+        if (message instanceof WasProcessed) {
+            WasProcessed processed = (WasProcessed) message;
 
             log.info("Resource was processed with content {}", processed.resource);
             int count = msgCount.incrementAndGet();
