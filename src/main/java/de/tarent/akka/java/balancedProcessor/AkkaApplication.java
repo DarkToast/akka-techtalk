@@ -8,9 +8,10 @@ import de.tarent.akka.java.balancedProcessor.actors.ResourceActor;
 
 public class AkkaApplication {
     public static void main(String[] args) throws InterruptedException {
-        ActorSystem system = ActorSystem.create("ScheduledBalancer");
+        final ActorSystem system = ActorSystem.create("ScheduledBalancer");
 
-        ActorRef resourceActor = system.actorOf(Props.create(ResourceActor.class), "resourceActor");
+        final ActorRef resourceActor = system.actorOf(Props.create(ResourceActor.class), "resourceActor");
+
         system.actorOf(Props.create(Terminator.class, resourceActor), "terminator");
     }
 

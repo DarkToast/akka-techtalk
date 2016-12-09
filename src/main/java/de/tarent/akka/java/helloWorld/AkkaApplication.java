@@ -10,11 +10,13 @@ public class AkkaApplication {
     public static void main(String[] args) throws InterruptedException {
 
         // Creating an actor system
-        ActorSystem basic = ActorSystem.create("Basic");
+        final ActorSystem basic = ActorSystem.create("Basic");
+
+        // `Props` are like factory recipes of Actor classes.
+        final Props actorCreationRecipe = Props.create(HelloWorldActor.class);
 
         // Creating an `ActorRef` by a `Props`.
-        // `Props` are like factory recipes of Actor classes.
-        ActorRef helloWorld = basic.actorOf(Props.create(HelloWorldActor.class), "helloWorld");
+        final ActorRef helloWorld = basic.actorOf(actorCreationRecipe, "helloWorld");
 
         // Creating a second `ActorRef` of the `Terminator` actor..
         basic.actorOf(Props.create(Terminator.class, helloWorld), "terminator");
